@@ -65,7 +65,7 @@
 
 
     $("#search").on('input', (e) => {
-        let query = e.target.value;
+        let query = e.target.value.toLowerCase();
     
         $("table tr").each(function (index) {
             if (!index) return;
