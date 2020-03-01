@@ -91,9 +91,13 @@ tr:hover {
 
 tr {
     height: 80px;
-    /* background: #fffff2; */
+    opacity: .5;
 }
 
+
+thead > tr, tr:hover {
+    opacity: 1;
+}
 
 table tr:first-child th:first-child {
     border-top-left-radius: 10px;
