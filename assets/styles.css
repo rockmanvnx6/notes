@@ -2,12 +2,13 @@ body {
     font-family: -apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,helvetica neue,sans-serif;
 }
 
-.head {
+body {
     background-color: #F1F3F5;
 }
 
 .search-holder {
     max-width: 800px;
+    border-radius: 10px;
 }
 
 .search-holder::before {
@@ -28,7 +29,7 @@ nav {
     cursor: pointer;
 }
 
-nav:hover {
+.label:hover {
     color: #745fb5;
 }
 
@@ -38,19 +39,32 @@ nav:hover {
 
 .desc a {
     color: #15234d;
+    opacity: .8;
 }
 
 a {
     color: #26648e;
     cursor: pointer;
+    transform: all 1s ease;
+}
+
+a:hover {
+    opacity: 1;
+    text-decoration: underline;
 }
 
 td {
-    border-color: transparent;
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}
+
+tr:last-child td {
+    border-bottom-color: transparent;
 }
 
 thead {
-    background: #F1F3F5;
+    /* background: #F1F3F5; */
 }
 
 table {
@@ -63,4 +77,80 @@ table {
 
 .show {
     display: table-row;
+}
+
+input::placeholder {
+    font-weight: 400;
+}
+
+tr:hover {
+    /* background-color: #f5f5f5; */
+}
+
+tr {
+    height: 80px;
+    /* background: #fffff2; */
+}
+
+
+table tr:first-child th:first-child {
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+
+}
+
+table tr:first-child th:last-child {
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+@media screen and (max-width: 768px){
+    table tr:first-child th:first-child {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+    
+    }
+    
+    table tr:first-child th:last-child {
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+    }
+}
+
+
+.search-holder {
+    /* border-bottom: 2px solid #F5F5F5; */
+}
+
+
+th {
+    font-weight: 700;
+}
+.back {
+    text-decoration: none;
+    width: 48px;
+    height: 48px;
+    line-height: 46px;
+    text-align: center;
+    display: inline-block;
+    border-radius: 50%;
+    transition: all 100ms linear;
+}
+.back:hover {
+    color: #fff;
+    background: #745fb5;
+    opacity: 1;
+}
+
+.back:hover::before {
+    background-image: url('./back-white.svg');
+}
+.back::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    background: url("./back.svg") center center/24px 24px no-repeat;
+    height: 24px;
+    width: 24px;
+    vertical-align: middle;
 }
