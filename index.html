@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Note Search</title>
+    <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+    <link href="./assets/styles.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-yaml/3.13.1/js-yaml.min.js"></script>
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+
+</head>
+<body>
+
+<div id="root">
+    <div class="head">
+        <nav class="flex font-semibold justify-center p-5 uppercase text-xs"> notes.auspham.dev </nav>
+        <div class="flex justify-center items-center py-32 px-10 flex-col min-w-full">
+            <h1 class="font-thin text-4xl ">RMIT Notes</h1>
+            <p class="font-thin text-sm desc m-4">Hey! I'm <a href="#">@austin</a> this is the collection of open RMIT Notes I have collected. Feel free to contribute and open <a href="#">pull request.</a></p>
+            <div class="search-holder w-full mt-4 h-12 relative bg-white flex items-center pl-5 shadow-sm">
+                <kbd class="text-gray-500 rounded-sm bg-gray-100 px-2 shadow-sm">:</kbd>
+                <input type="text" id="search" class="search font-medium h-full w-full outline-none ml-5"/>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="body mt-20 p-5 overflow-x-auto">
+        <table class="table-auto m-auto w-full">
+            <thead>
+              <tr class="text-left">
+                <th class="py-2 px-4">Course ID</th>
+                <th class="py-2 px-4">Course name</th>
+                <th class="py-2 px-4">Link</th>
+                <th class="py-2 px-4">Semester</th>
+              </tr>
+            </thead>
+            <tbody id="dynamic-data"></tbody>
+          </table>
+    </div>
+</div>
+
+<script>
+    $.get("./data.yaml").then(data => {
+        let doc = jsyaml.load(data);
+        doc.forEach(course => {
+            let html = $(`<tr data-search="${course.short}">
+                <td class="border px-4 py-2">${course.code}</td>
+                <td class="border px-4 py-2">${course.name}</td>
+                <td class="border px-4 py-2"><a href="${course.link}" target="_blank">View</td>
+                <td class="border px-4 py-2">Sem ${course.sem} ${course.year}</td>
+              </tr>`);
+            $("#dynamic-data").append(html);
+        });
+    });
+
+
+    $("#search").on('input', (e) => {
+        let query = e.target.value;
+        $("table tr").each(function (index) {
+            if (!index) return;
+            let $row = $(this);
+            if($row.data('search').toLowerCase().indexOf(query) >= 0) {
+                $row.addClass('show');
+                $row.removeClass('hide');
+                return false;
+            }
+            $(this).find("td").each(function (e) {
+                let value = $(this).text();
+                if(value.toLowerCase().indexOf(query) >= 0) {
+                    $row.addClass('show');
+                    $row.removeClass('hide');
+                    return false;
+                } else {
+                    $row.addClass('hide');
+                    $row.removeClass('show');
+                }
+            });
+        });
+    })
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,13 @@
+- code: "COSC2428"
+  name: "Software Engineering: Process and Tools"
+  link: "https://auspham.dev/SeptNotes/#/"
+  short: sept
+  sem: 2
+  year: 2019
+
+- code: "COSC2675"
+  name: "Rapid Application Development"
+  short: rad
+  link: "https://github.com/pigfly/RMIT-RAD"
+  sem: 1
+  year: 2019

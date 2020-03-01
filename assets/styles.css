@@ -1,0 +1,66 @@
+body {
+    font-family: -apple-system,BlinkMacSystemFont,segoe ui,roboto,oxygen,ubuntu,cantarell,fira sans,droid sans,helvetica neue,sans-serif;
+}
+
+.head {
+    background-color: #F1F3F5;
+}
+
+.search-holder {
+    max-width: 800px;
+}
+
+.search-holder::before {
+    content: '';
+    display: inline-block;
+    vertical-align: middle;
+    background: url("./search.svg") center center/32px 32px no-repeat;
+    height: 32px;
+    width: 32px;
+    background-position: center center;
+    flex: 0 0 64px;
+    width: 64px;
+    order: 2;
+}
+
+nav {
+    color: #345;
+    cursor: pointer;
+}
+
+nav:hover {
+    color: #745fb5;
+}
+
+.desc {
+    color: #678;
+}
+
+.desc a {
+    color: #15234d;
+}
+
+a {
+    color: #26648e;
+    cursor: pointer;
+}
+
+td {
+    border-color: transparent;
+}
+
+thead {
+    background: #F1F3F5;
+}
+
+table {
+    max-width: 800px;
+}
+
+.hide {
+    display: none;
+}
+
+.show {
+    display: table-row;
+}
