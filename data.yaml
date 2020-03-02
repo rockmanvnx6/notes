@@ -11,3 +11,11 @@
   link: "https://github.com/pigfly/RMIT-RAD"
   sem: 1
   year: 2019
+
+
+- code: "COST2674"
+  name: "Programming Internet of Things"
+  link: "http://auspham.dev/RMIT-IoT/"
+  short: iot
+  sem: 1
+  year: 2020
