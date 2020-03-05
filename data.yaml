@@ -19,3 +19,11 @@
   short: piot
   sem: 1
   year: 2020
+
+
+- code: "COSC2673"
+  name: "Machine Learning"
+  link: "https://auspham.dev/RMIT-MachineLearning"
+  short: ml
+  sem: 1
+  year: 2020
